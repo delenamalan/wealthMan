@@ -26,7 +26,7 @@ SchemaSecurityPerc = new SimpleSchema({
     max : 20
     },
     // Percentage this security makes up of the model
-    "percentage" : {
+    "perc" : {
     type : Number,
     min : 0,
     max : 100
@@ -46,7 +46,7 @@ SchemaModel = new SimpleSchema({
     max : 255
     },
     // Description of model
-    "description" : {
+    "desc" : {
     type : String,
     max : 2048 
     },

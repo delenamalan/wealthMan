@@ -10,7 +10,6 @@ alanning:roles
 aldeed:simple-schema
 iron:router
 service-configuration
-dburles:google-maps
 fortawesome:fontawesome
 reactive-var
 gfk:notifications

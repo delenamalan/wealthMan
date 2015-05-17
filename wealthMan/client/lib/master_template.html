@@ -34,7 +34,6 @@
     </div>
 	<div class="headerContent">
 	    {{ > headerAccessTemplate }}
-	    {{ > headerMenuTemplate }}
 	</div>
     </div>
 </template>
@@ -74,10 +73,6 @@
 <template name="headerMenuTemplate">
     <div class="headerMenu">
 	<ul class="headerMenuList">
-	    <li><a href="{{ pathFor 'index' }}"><i class="fa fa-home"></i>Home</a></li>
-	    <li><a href="{{ pathFor 'register' }}"><i class="fa fa-cutlery"></i>Register</a></li>
-	    <li><a href="{{ pathFor 'dashboard' }}"><i class="fa
-        fa-dashboard"></i>Dashboard</a></li>
 	</ul>
     </div>
 </template>

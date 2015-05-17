@@ -16,6 +16,12 @@ To run the app:
     cd wealthMan
     meteor
 
-Open your browser (preferable Chrome) and type http://localhost:3000 in the
+Open your browser (preferably Chrome) and type http://localhost:3000 in the
 address bar.
+
+To access test data, log in with:
+    Email: test@email.com
+    Password: password
+
+Or create your own account and create your own test data.
 

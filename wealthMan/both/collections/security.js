@@ -32,7 +32,7 @@ SchemaSecurity = new SimpleSchema({
     max : 255
     },
     // Description of security
-    "description" : {
+    "desc" : {
     type : String,
     max : 2048 
     },

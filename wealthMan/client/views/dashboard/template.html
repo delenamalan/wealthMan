@@ -12,10 +12,114 @@
 
 
 <template name="dashboardTemplate">
- <div class="dashboardWrapper">
-    <h2>Dashboard</h2>
-
-</div>
+    <div class="dashboardWrapper">
+        <h2>Dashboard</h2>
+        <div id="securities-div">
+            <h3>Securities</h3>
+            <table id="securities-table" class="uk-table uk-table-hover uk-table-striped">
+                <thead><tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                </tr></thead>
+                <tbody>
+                    {{ #each securities }}
+                    <tr>
+                        <td>
+                            <input class="name" type="text" value={{ name }}/> 
+                        </td>
+                        <td>
+                            <textarea class="desc" cols="20">{{ desc }}</textarea>
+                        </td>
+                        <td>
+                            <input class="price" type="number" min="0" step="0.01"
+                            value="{{ price }}"/>
+                        </td>
+                        <td>
+                            <a class="delete-security"><i class="fa
+                            fa-close fa-lg"></i></a>
+                        </td>
+                    </tr>
+                    {{ /each }}
+                </tbody>
+            </table>
+            <button id="add-security" class="uk-button" type="button">Add Another
+            Security</button>
+        </div>
+        <div id="models-div">
+            <h3>Models</h3>
+            <table id="models-table" class="uk-table 
+            uk-table-striped uk-accordion" data-uk-accordion="{collapse : false,
+            showfirst : false}">
+                <thead><tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Delete</th>
+                    <th>Show Securities</th>
+                </tr></thead>
+                <tbody>
+                    {{ #each models }}
+                    <tr class=" model-row">
+                        <td>
+                            <input id="name" type="text" value={{ name }}/> 
+                        </td>
+                        <td>
+                            <textarea id="desc" cols="20">{{ desc }}</textarea>
+                        </td>
+                        <td>
+                            <a class="delete-model"><i class="fa
+                            fa-close fa-lg"></i></a>
+                        </td>
+                        <td>
+                            <a class="uk-accordion-title"><i class="fa
+                            fa-chevron-right fa-lg sec-chevron"></i></a>
+                        </td>
+                    </tr>
+                    <tr><td colspan="4">
+                        <div class="uk-accordion-content">
+                        <table class="model-sec-table">
+                            <thead><tr>
+                                <th>Security name</th>
+                                <th>Percentage</th>
+                                <th>Delete</th>
+                            </tr></thead>
+                            <tbody>
+                            {{ #each secs }}
+                            <tr>
+                                <td>
+                                <select>
+                                    {{ #each securities }}
+                                    <option value="{{ _id }}" selected="{{
+                                    isSelected _id ../_security }}">
+                                        {{ name }}
+                                    </option>
+                                    {{ /each }}
+                                </select>
+                                </td>
+                                <td>
+                                    <input class="perc" type="number" min="0" step="0.01"
+                                    value="{{ perc }}"/>
+                                </td>
+                                <td>
+                                    <a class="delete-sec-model"><i class="fa
+                                    fa-close fa-lg"></i></a>
+                                </td>
+                            </tr>
+                                {{ /each }}
+                            </tbody>
+                        </table>
+                        <button id="add-sec-model" class="uk-button" type="button">Add Another
+                        Security to the Model</button>
+                        </div>
+                    </td></tr>
+                    {{ /each }}
+                </tbody>
+            </table>
+            <button id="add-model" class="uk-button" type="button">Add Another
+            Model</button>
+        </div>
+    </div>
 </template>
 
 
