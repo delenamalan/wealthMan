@@ -14,8 +14,6 @@ Log.info( Level, "both/route/map.js" );
 
 
 Router.configure({
-    // layout: '',	// layout specified on a per controller basis
-    loadingTemplate:	'loading',
     notFoundTemplate:	'notFound'
 });
 
@@ -28,12 +26,12 @@ Router.map( function () {
 	controller: 'ControllerHome'
     });
     
-    this.route( 'about', {
-	path: '/about',
-	name: 'about',
-	controller: 'ControllerAbout'
+    this.route( 'register', {
+	path: '/register',
+	name: 'register',
+	controller: 'ControllerRegister'
     });
-
+    
     this.route( 'dashboard', {
 	path: '/dashboard/:_id',
 	name: 'dashboard',

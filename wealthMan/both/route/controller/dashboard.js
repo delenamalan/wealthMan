@@ -12,11 +12,15 @@
 Log.log( Level, Log.INFO, "both/route/controller/dashboard.js" );
 
 
-ControllerDashboard = ControllerNoAuth.extend({
-    template: 'dashboardTemplate',
-    yieldTemplates: {
-	'homeHeaderTemplate': { to: 'header' },
-	'footerTemplate': { to: 'footer' }
+ControllerDashboard = ControllerAuth.extend({
+    template : 'dashboardTemplate',
+    yieldTemplates : {
+        'headerTemplate': { to: 'header' },
+        'footerTemplate': { to: 'footer' }
+    },
+    onAfterAction : function() {
+        Meteor.subscribe("userModels", this.params._id);
+        Meteor.subscribe("userSecurities", this.params._id);
     }
 });
 
