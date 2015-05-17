@@ -1,0 +1,59 @@
+/**
+  * CS 334 - Final Project
+  *	Restaurant Perfect
+  * 
+  * Location:	
+  *	client/views/home/style.css
+  *
+  * Description:
+  *
+  * Authors:
+  *	Rudolf Byker	- 17973340@sun.ac.za
+  *	Chris Malan	- 16187288@sun.ac.za
+  *	Deléna Malan	- 17524695@sun.ac.za
+  *	Andrew Polly	- 17252369@sun.ac.za
+  *	Robert Sandell	- 16726723@sun.ac.za
+  *	David Schwartz	- 17303184@sun.ac.za
+  *
+  **/
+
+
+/**
+  * Header Overrides
+  **/
+.homeHeaderWrapper.headerWrapper {
+    height: 200px;
+    background-color: transparent;
+    background: linear-gradient( #E07676, #E07676, rgba( 0, 75, 148, 0 )); /* Standard syntax */
+}
+.homeHeaderWrapper .headerContent {
+    left: 200px;
+}
+
+.homeWrapper {
+    text-align: center;
+}
+.homeWrapper > h1:first-child {
+    text-align: center;
+}
+
+.homeWrapper .generalForm {
+    text-align: left;
+}
+
+.homeWrapper a {
+    padding: 11px 0 0 0;
+    display: block;
+    text-align: center;
+    font-size: 21px;
+}
+.homeWrapper a > i {
+  margin-right: 6px;
+  margin-left: 3px;
+}
+
+
+
+/**
+  * EOF
+  **/

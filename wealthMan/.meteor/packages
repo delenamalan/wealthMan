@@ -5,5 +5,13 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
+matb33:collection-hooks
+alanning:roles
+aldeed:simple-schema
+iron:router
+service-configuration
+dburles:google-maps
+fortawesome:fontawesome
+reactive-var
+gfk:notifications
+accounts-password

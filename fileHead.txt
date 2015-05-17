@@ -1,0 +1,12 @@
+/**
+  * WealthMan
+  * 
+  * Location:	
+  *	both/route/map.js
+  *
+  * Description:
+  *
+  * Author:
+  *	Delena Malan
+  *
+  **/

@@ -1,0 +1,114 @@
+<!-- 
+    WealthMan
+
+    Location:	
+	client/lib/master_template.html
+
+    Description:
+ 
+    Authors:
+    Delena Malan
+-->
+
+
+<head>
+    <title>WealthMan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+</head>
+
+
+<template name="baseTemplate">
+    <div class="baseWrapper">
+	{{ > notifications }}
+	{{ > yield "header" }}
+	{{ > yield }}
+	{{ > yield "footer" }}
+    </div>
+</template>
+
+
+<template name="headerTemplate">
+    <div class="headerWrapper">
+    <div class="headerTitle">
+        <h1>Wealth Man</h1>
+    </div>
+	<div class="headerContent">
+	    {{ > headerAccessTemplate }}
+	    {{ > headerMenuTemplate }}
+	</div>
+    </div>
+</template>
+
+
+<template name="headerAccessTemplate">
+    <div class="headerAccess">
+	{{ #if currentUser }}
+	<div class="headerAccessLoggedin">
+	    <span>Welcome {{ username }}</span>
+	    <button class="uk-button" id="access-logout">Logout</button>
+	</div>
+	{{ else }}
+	<div class="headerAccessRegister">
+	    <a href="{{ pathFor 'register' }}">New Here<i class="fa fa-question"></i>Register<i class="fa fa-exclamation"></i></a>
+	</div>
+	<div class="headerAccessLogin">
+	    <form class="uk-form">
+		<span>
+		    <i class="fa fa-user fa-2x fa-fw"></i>
+		    <input type="text" id="access-email" placeholder="Email" />
+		</span>
+		<span>
+		    <i class="mobileLogo fa fa-key fa-2x fa-fw"></i>
+		    <input type="password" id="access-pass" placeholder="Password" />
+		</span>
+		<span>
+		    <button class="uk-button" >Login</button>
+		</span>
+	    </form>
+	</div>
+	{{ /if }}
+    </div>
+</template>
+
+
+<template name="headerMenuTemplate">
+    <div class="headerMenu">
+	<ul class="headerMenuList">
+	    <li><a href="{{ pathFor 'index' }}"><i class="fa fa-home"></i>Home</a></li>
+	    <li><a href="{{ pathFor 'register' }}"><i class="fa fa-cutlery"></i>Register</a></li>
+	    <li><a href="{{ pathFor 'dashboard' }}"><i class="fa
+        fa-dashboard"></i>Dashboard</a></li>
+	</ul>
+    </div>
+</template>
+
+
+<template name="footerTemplate">
+    <div class="footerWrapper">
+	<div class="footerMenu">
+	    <ul>
+		<li><a href="{{ pathFor 'index' }}"><i class="fa fa-home"></i>Home</a></li>
+		<li><a href="{{ pathFor 'dashboard' }}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+		<li><a href="{{ pathFor 'about' }}"><i class="fa fa-info"></i>About</a></li>
+	    </ul>
+	</div>
+	<div class="footerCopy">
+	</div>
+    </div>
+</template>
+
+
+<template name="notFound">
+    <div class="notFoundWrapper">
+	<div class="notFoundContent">
+	    <h1>404 Not Found</h1>
+	    <div>The resource you requested is not avalible.</div>
+	    <a href="#">Go to the home page</a>
+	</div>
+    </div>
+</template>
+
+
+<!--
+    EOF
+-->

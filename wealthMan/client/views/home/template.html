@@ -1,0 +1,57 @@
+<!-- 
+	Wealth Man
+
+    Location:	
+	client/views/home/template.html
+
+    Description:
+ 
+    Authors:
+    Delena Malan
+-->
+
+
+<template name="homeHeaderTemplate">
+    <div class="headerWrapper homeHeaderWrapper">
+    <div class="headerTitle">
+        <h1>Wealth Man</h1>
+    </div>
+	<div class="headerContent">
+	    {{ > headerMenuTemplate }}
+	</div>
+    </div>
+</template>
+
+
+<template name="homeTemplate">
+ <div class="homeWrapper">
+    <h2>Login to Continue</h2>
+    <div class="loginBox">
+	<form class="generalForm uk-form">
+	    <span>
+		<i class="fa fa-lg fa-fw fa-envelope-o"></i> Email Address
+	    </span>
+	    <span>
+		<input id="loginEmail" type="text" placeholder="Email"/>
+	    </span>
+	    <span>
+		<i class="fa fa-lg fa-fw fa-key"></i> Password
+	    </span>
+	    <span>
+		<input id="loginPass" type="password" placeholder="Password"/>
+	    </span>
+	    <button class="uk-button">Login</button>
+	    <span>
+		<a href="{{ pathFor 'register' }}">
+		    Not yet registered?<i class="fa fa-question"></i>Register<i class="fa fa-exclamation"></i>
+		</a>
+	    </span>
+	</form>
+    </div>
+</div>
+</template>
+
+
+<!--
+    EOF
+-->
