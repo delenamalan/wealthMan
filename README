@@ -1,0 +1,21 @@
+Project name: WealtMan
+Author: Delena Malan
+Last Edited 17 May 2015
+=======================
+
+File list
+---------
+
+
+How to run
+--------------
+If you don't have Meteor installed already, from a terminal window:
+    curl install.meteor.com | /bin/sh
+
+To run the app:
+    cd wealthMan
+    meteor
+
+Open your browser (preferable Chrome) and type http://localhost:3000 in the
+address bar.
+
