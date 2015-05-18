@@ -27,13 +27,13 @@
                     {{ #each securities }}
                     <tr>
                         <td>
-                            <input class="name" type="text" value={{ name }}/> 
+                            <input class="sec-name security-input" type="text" value="{{ name }}"/> 
                         </td>
                         <td>
-                            <textarea class="desc" cols="20">{{ desc }}</textarea>
+                            <textarea class="sec-desc security-input" cols="20">{{ desc }}</textarea>
                         </td>
                         <td>
-                            <input class="price" type="number" min="0" step="0.01"
+                            <input class="sec-price security-input" type="number" min="0" step="0.01"
                             value="{{ price }}"/>
                         </td>
                         <td>
@@ -49,9 +49,7 @@
         </div>
         <div id="models-div">
             <h3>Models</h3>
-            <table id="models-table" class="uk-table 
-            uk-table-striped uk-accordion" data-uk-accordion="{collapse : false,
-            showfirst : false}">
+            <table id="models-table">
                 <thead><tr>
                     <th>Name</th>
                     <th>Description</th>
@@ -60,24 +58,24 @@
                 </tr></thead>
                 <tbody>
                     {{ #each models }}
-                    <tr class=" model-row">
+                    <tr class="model-row">
                         <td>
-                            <input id="name" type="text" value={{ name }}/> 
+                            <input class="name" type="text" value="{{ name }}" /> 
                         </td>
                         <td>
-                            <textarea id="desc" cols="20">{{ desc }}</textarea>
+                            <textarea class="desc" cols="20">{{ desc }}</textarea>
                         </td>
                         <td>
                             <a class="delete-model"><i class="fa
                             fa-close fa-lg"></i></a>
                         </td>
                         <td>
-                            <a class="uk-accordion-title"><i class="fa
-                            fa-chevron-right fa-lg sec-chevron"></i></a>
+                            <a class=""><i class="fa
+                            fa-chevron-right fa-lg sec-chevron {{ _id }}-chevron"></i></a>
                         </td>
                     </tr>
                     <tr><td colspan="4">
-                        <div class="uk-accordion-content">
+                        <div class="model-secs-div {{ _id }}-secs">
                         <table class="model-sec-table">
                             <thead><tr>
                                 <th>Security name</th>
@@ -85,10 +83,10 @@
                                 <th>Delete</th>
                             </tr></thead>
                             <tbody>
-                            {{ #each secs }}
+                            {{ #each _modelSecurities }}
                             <tr>
                                 <td>
-                                <select>
+                                <select class="sec-select">
                                     {{ #each securities }}
                                     <option value="{{ _id }}" selected="{{
                                     isSelected _id ../_security }}">
@@ -97,16 +95,17 @@
                                     {{ /each }}
                                 </select>
                                 </td>
-                                <td>
-                                    <input class="perc" type="number" min="0" step="0.01"
+                                <td align="center">
+                                    <input class="perc perc-{{_security}}" type="number" min="0" step="0.01"
                                     value="{{ perc }}"/>
                                 </td>
                                 <td>
-                                    <a class="delete-sec-model"><i class="fa
+                                    <a class="delete-sec-model" 
+                                    ><i class="fa
                                     fa-close fa-lg"></i></a>
                                 </td>
                             </tr>
-                                {{ /each }}
+                            {{ /each }}
                             </tbody>
                         </table>
                         <button id="add-sec-model" class="uk-button" type="button">Add Another

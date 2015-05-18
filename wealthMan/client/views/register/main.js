@@ -13,10 +13,6 @@
 Log.info( Level, "client/views/register/main.js" );
 
 
-Template.registerTemplate.helpers({
-});
-
-
 Template.registerTemplate.events({
 	'submit form': function( e, t ) {
 	    e.preventDefault();
@@ -33,9 +29,17 @@ Template.registerTemplate.events({
                 Log.error( Level, [ "Error:", e ] );
             }
 	    });
+
+        Meteor.loginWithPassword( email, pass,
+            function ( e, id ) {
+                if ( e ) {
+                    Notifications.error( "Error", "Bad Details" );
+                } else {
+                    Router.go( 'dashboard',  {"_id": Meteor.userId() } );
+                }
+            }
+        );
 	
-        Router.go( 'dashboard',  {"_id": Meteor.userId() } );
-		
         return false;
     }
 });

@@ -51,7 +51,7 @@ SchemaModel = new SimpleSchema({
     max : 2048 
     },
     // Array of securities and their percentages belonging to the model
-    "securities" : {
+    "_modelSecurities" : {
     type : [SchemaSecurityPerc]
     }
 });
