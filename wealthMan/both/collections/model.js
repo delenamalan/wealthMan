@@ -20,20 +20,6 @@ Log.info( Level, "both/collections/model.js" );
   **/
 CollectionModel = new Mongo.Collection( "model" );
 
-SchemaSecurityPerc = new SimpleSchema({
-    // Security belonging to a model
-    "_security" : {
-    type : String,
-    max : 20
-    },
-    // Percentage this security makes up of the model
-    "perc" : {
-    type : Number,
-    min : 0,
-    max : 100
-    }
-});
-
 
 SchemaModel = new SimpleSchema({
     // User that this model belongs to
@@ -50,10 +36,6 @@ SchemaModel = new SimpleSchema({
     "desc" : {
     type : String,
     max : 2048 
-    },
-    // Array of securities and their percentages belonging to the model
-    "_modelSecurities" : {
-    type : [SchemaSecurityPerc]
     }
 });
 

@@ -14,8 +14,19 @@
 Log.info( Level, "client/views/dashboard/main.js" );
 
 var activeModel;
-var previousSec;
-var previousPerc;
+
+var unusedSecurities = function(modelId) {
+        var unusedSecs = [];
+        var secs = CollectionSecurity.find().fetch();
+        for (var i = 0; i < secs.length; i++) {
+            if (CollectionModelSecurity.find({ "_model" : modelId, "_security" :
+            secs[i]._id}).fetch().length == 0) {
+                unusedSecs.push(CollectionSecurity.findOne({"_id" :
+                secs[i]._id}));
+            }
+        }
+        return unusedSecs;
+};
 
 Template.dashboardTemplate.helpers({
     "models" : function() {
@@ -24,6 +35,18 @@ Template.dashboardTemplate.helpers({
     },
     "securities" : function() {
         return CollectionSecurity.find().fetch();
+    },
+    "modelSecurities" : function(modelId) {
+        return CollectionModelSecurity.find({ "_model" : modelId}).fetch();
+    },
+    "unusedSecurities" : function(modelId) {
+        return unusedSecurities(modelId);
+    },
+    "unusedCurrentSecurities" : function(modelId) {
+        var unused = unusedSecurities(modelId);
+        unused.push(CollectionSecurity.findOne({
+        "_id" : this._security}));
+        return unused;
     },
     "isSelected" : function(v1, v2) {
         if (v1 == v2) {
@@ -51,7 +74,7 @@ Template.dashboardTemplate.events({
         var newPrice = Math.round($(e.target).val()*100)/100.0;
         CollectionSecurity.update({"_id" : this._id}, {$set : {
         price : newPrice }});
-        $(e.target).val = newPrice;
+        e.target.value = newPrice;
     },
     'focusout .mod-name' : function(e, t) {
         CollectionModel.update({"_id" : this._id}, {$set : {
@@ -74,17 +97,19 @@ Template.dashboardTemplate.events({
     },
     'click #add-sec-model' : function(e, t) {
         e.preventDefault();
-        var newSecurity = {
-            "_security" : CollectionModel.findOne()._id,
+        var newModelSecurity = {
+            "_user" : Meteor.userId(),
+            "_model" : this._id,
+            "_security" : unusedSecurities(this._id)[0]._id,
             "perc" : 0.00
         };
-        CollectionModel.update({"_id" : this._id}, {$push : { "_modelSecurities"
-        : newSecurity}});
+        CollectionModelSecurity.insert(newModelSecurity);
         return false;
     },
     'click .delete-security' : function(e, t) {
         e.preventDefault();
         CollectionSecurity.remove({ _id : this._id});
+        Meteor.call("deleteSecurity", this._id);
         return false;
     },
     'click .delete-model' : function(e, t) {
@@ -94,18 +119,15 @@ Template.dashboardTemplate.events({
     },
     'click .delete-sec-model' : function(e, t) {
         e.preventDefault();
-        CollectionModel.update({_id : activeModel
-        }, {$pull : { _modelSecurities : { _security : this._security}}});
+        CollectionModelSecurity.remove({ _id : this._id});
         return false;
     },
     'click #add-model' : function (e, t) {
         e.preventDefault();
-        console.log("add model");
         var newModel = {
             "_user" : Meteor.userId(),
             "name" : "Model Name",
-            "desc" : "Model Description",
-            "_modelSecurities" : []
+            "desc" : "Model Description"
         };
         CollectionModel.insert(newModel);
         return false;
@@ -114,28 +136,14 @@ Template.dashboardTemplate.events({
         previousSec = $(e.target).val();
     },
     'change .sec-select' : function(e, t) {
-        var perc = $(".perc-" + activeModel).val();
-        var newSec = this._id;
-        Meteor.call("incrementSecurity", activeModel, previousSec, perc);
-        if (CollectionModel.find({ _id : activeModel,
-        "_modelSecurities._security" : newSec}).length == 0) {
-            var newSecurity = {
-                "_security" : newSec,
-                "perc" : 0.00
-            };
-            CollectionModel.update({"_id" : this._id}, {$push : { "_modelSecurities"
-            : newSecurity}});
-        }
-        Meteor.call("incrementSecurity", activeModel, newSec, perc);
-    },
-    'focus .perc': function(e, t) {
-        previousPerc = $(e.target).val();
+        CollectionModelSecurity.update({"_id" : this._id}, {$set : {_security :
+        $(e.target).val()}});
     },
     'focusout .perc' : function(e, t) {
-        var newPerc = $(".perc-" + activeModel).val();
-        var newSec = this._id;
-        Meteor.call("incrementSecurity", activeModel, newSec, newPerc -
-        previousPerc);
+        var newPerc = Math.round($(e.target).val()*100)/100.0;
+        e.target.value = newPerc;
+        CollectionModelSecurity.update({"_id" : this._id}, {$set : {
+        perc : newPerc }});
     },
 	'click .sec-chevron' : function(e, t) {
         activeModel = this._id;

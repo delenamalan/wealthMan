@@ -22,6 +22,7 @@ ControllerDashboard = ControllerAuth.extend({
     onAfterAction : function() {
         Meteor.subscribe("userModels", this.params._id);
         Meteor.subscribe("userSecurities", this.params._id);
+        Meteor.subscribe("userModelSecurities", this.params._id);
     }
 });
 

@@ -34,6 +34,7 @@
 .dashboardWrapper .model-sec-table {
     float: right;
     width: 100%;
+    text-align: left;
 }
 
 .dashboardWrapper .model-row:hover {
@@ -75,15 +76,24 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height .8s;
+    background-color: rgba(53, 146, 83, 0.1);
+    border-radius: 0.2em;
 }
 
 .model-secs-div.active-row {
     max-height: 100%;
+    padding: 1em;
 }
 
-select {
+.dashboardWrapper select {
     width: 100%;
 }
+
+.dashboardWrapper #add-model{
+    margin-top: 2em;
+}
+
+
 
 
 /**

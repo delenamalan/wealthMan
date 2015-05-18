@@ -21,6 +21,9 @@ Meteor.publish("userSecurities", function(userId) {
     return CollectionSecurity.find({"_user" : userId});
 });
 
+Meteor.publish("userModelSecurities", function(userId) {
+    return CollectionModelSecurity.find({"_user" : userId});
+});
 
 /**
   * EOF

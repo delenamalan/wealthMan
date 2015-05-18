@@ -32,7 +32,7 @@
                             <input class="sec-name security-input" type="text" value="{{ name }}"/> 
                         </td>
                         <td>
-                            <textarea class="sec-desc security-input" cols="20">{{ desc }}</textarea>
+                            <textarea class="sec-desc security-input" cols="40">{{ desc }}</textarea>
                         </td>
                         <td>
                             <input class="sec-price security-input" type="number" min="0" step="0.01"
@@ -46,7 +46,7 @@
                     {{ /each }}
                 </tbody>
             </table>
-            <button id="add-security" class="uk-button" type="button">Add Another
+            <button id="add-security" class="uk-button" type="button">Add a
             Security</button>
         </div>
         <div id="models-div">
@@ -65,7 +65,7 @@
                             <input class="name" type="text" value="{{ name }}" /> 
                         </td>
                         <td>
-                            <textarea class="desc" cols="20">{{ desc }}</textarea>
+                            <textarea class="desc" cols="40">{{ desc }}</textarea>
                         </td>
                         <td>
                             <a class="delete-model"><i class="fa
@@ -85,11 +85,11 @@
                                 <th>Delete</th>
                             </tr></thead>
                             <tbody>
-                            {{ #each _modelSecurities }}
+                            {{ #each modelSecurities _id }}
                             <tr>
                                 <td>
                                 <select class="sec-select">
-                                    {{ #each securities }}
+                                    {{ #each unusedCurrentSecurities _model }}
                                     <option value="{{ _id }}" selected="{{
                                     isSelected _id ../_security }}">
                                         {{ name }}
@@ -97,7 +97,7 @@
                                     {{ /each }}
                                 </select>
                                 </td>
-                                <td align="center">
+                                <td> 
                                     <input class="perc perc-{{_security}}" type="number" min="0" step="0.01"
                                     value="{{ perc }}"/>
                                 </td>
@@ -107,17 +107,25 @@
                                     fa-close fa-lg"></i></a>
                                 </td>
                             </tr>
+                            {{ else }}
+                            No securites added yet.
                             {{ /each }}
                             </tbody>
                         </table>
-                        <button id="add-sec-model" class="uk-button" type="button">Add Another
-                        Security to the Model</button>
+                        {{ #if unusedSecurities _id }}
+                            <button id="add-sec-model" class="uk-button"
+                            type="button">Add a
+                            Security to the Model</button>
+                        {{ else }}
+                            <button class="uk-button" type="button" disabled>No
+                            More Unused Securites to Add</button>
+                        {{ /if }}
                         </div>
                     </td></tr>
                     {{ /each }}
                 </tbody>
             </table>
-            <button id="add-model" class="uk-button" type="button">Add Another
+            <button id="add-model" class="uk-button" type="button">Add a
             Model</button>
         </div>
     </div>

@@ -15,17 +15,9 @@
 Log.info( Level, "server/methods.js" );
 
 Meteor.methods({
-    // Method to increment the percentage value of a security in a model
-    incrementSecurity: function (modelId, securityId, perc) {
-        CollectionModel.update({_id : modelId, "_modelSecurities._security"
-        : securityId}, {$inc : { "_modelSecurities.perc" : -1 * perc }},
-            function (error, affectedDocs) {
-                if (error) {
-                    throw new Meteor.Error(500, error.message);
-                } else {
-                    console.log("success");
-                }
-            });
+    // Method to delete all model-security pairs when a security is deleted.
+    deleteSecurity : function (securityId) {
+        CollectionModelSecurity.remove({ _security : securityId});
     }
 });
 
