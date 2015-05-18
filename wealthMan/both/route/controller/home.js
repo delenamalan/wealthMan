@@ -5,8 +5,9 @@
   *	both/route/controller/home.js
   *
   * Description:
+  * Home page controller.
   *
-  * Authors:
+  * Author:
   * Delena Malan
   **/
 Log.log( Level, Log.INFO, "both/route/controller/home.js" );

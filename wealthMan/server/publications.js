@@ -5,6 +5,7 @@
   *	server/publications.js
   *
   * Description:
+  * Meteor collection publications.
   *
   * Author:
   *	Delena Malan

@@ -5,6 +5,7 @@
   *	both/route/controller/register.js
   *
   * Description:
+  * Register page controller.
   *
   * Author:
   * Delena Malan

@@ -1,10 +1,11 @@
 /**
-  * WealthMan
+  * Wealth Man
   * 
   * Location:	
   *	both/collections/security.js
   *
   * Description:
+  * Definition of the collection in which securites are stored.
   *
   * Author:
   *	Delena Malan

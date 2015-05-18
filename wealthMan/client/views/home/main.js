@@ -5,6 +5,7 @@
   *	client/views/home/main.js
   *
   * Description:
+  * Helpers and events for the home template.
   *
   * Author:
   * Delena Malan

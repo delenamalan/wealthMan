@@ -5,7 +5,7 @@
   *	both/route/controller/template/auth.js
   *
   * Description:
-  *	General Controller with authentication
+  *	General controller with authentication
   *	to filter out unauthenticated users.
   *
   * Author:

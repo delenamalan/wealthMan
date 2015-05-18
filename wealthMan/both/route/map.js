@@ -5,6 +5,7 @@
   *	both/route/map.js
   *
   * Description:
+  * Router to map routes to controllers.
   *
   * Author:
   *	Delena Malan

@@ -5,8 +5,7 @@
   *	both/route/controller/template/noauth.js
   *
   * Description:
-  *	General Controller with authentication
-  *	to filter out unauthenticated users.
+  *	General controller for pages where authentication isn't needded.
   *
   * Author:
   * Delena Malan

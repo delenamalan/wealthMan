@@ -1,34 +1,16 @@
 /**
-  * WealthMan
+  * Wealth Man
   * 
   * Location:	
   *	client/views/dashboard/style.css
   *
   * Description:
+  * Stylesheet for the dashboard template.
   *
   * Author:
   *	Delena Malan
   *
   **/
-
-/*
-@media (max-width: 1600px) and (orientation:landscape) {
-
-    #securities-div {
-        width: 50%;
-        max-width: 50%;
-        float: left;
-    }
-
-    #models-div {
-        width: 50%;
-        max-width: 50%;
-        float: right;
-        clear: both;
-    }
-
-}
-*/
 
 .dashboardWrapper input, .dashboardWrapper textarea, .dashboardWrapper select {
     border: 0;
@@ -66,6 +48,7 @@
 
 #securities-div, #models-div {
     margin-left: 1em;
+    padding-bottom: 2em;
 }
 
 .dashboardWrapper textarea {

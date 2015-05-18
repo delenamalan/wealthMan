@@ -1,6 +1,5 @@
 /**
-  * CS 334 - Final Project
-  * Restaurant Perfect
+  * Wealth Man
   * 
   * Location:	
   *	both/lib/logger.js
@@ -9,20 +8,14 @@
   *	Log and Level objects on global scope
   *	for application logging and debugging.
   *
-  * Authors:
-  *	Rudolf Byker	- 17973340@sun.ac.za
-  *	Chris Malan	- 16187288@sun.ac.za
-  *	Deléna Malan	- 17524695@sun.ac.za
-  *	Andrew Polly	- 17252369@sun.ac.za
-  *	Robert Sandell	- 16726723@sun.ac.za
-  *	David Schwartz	- 17303184@sun.ac.za
+  * Author:
+  *	Robert Sandell
   *
   * @module logger
   **/
 
 
 /**
-  * TODO: Description
   *
   * @class Log
   **/
@@ -46,10 +39,6 @@ var logger = function () {
       **/
     this.ERROR = 1;
     
-    
-    /**
-      * TODO: Descriptions
-      **/
     this.WARN  = 2;
     this.INFO  = 3;
     this.DEBUG = 4;

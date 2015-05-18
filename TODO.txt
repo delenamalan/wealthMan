@@ -1,4 +1,0 @@
-Potential TODOs:
-Security fields:
-- type
-- change in price

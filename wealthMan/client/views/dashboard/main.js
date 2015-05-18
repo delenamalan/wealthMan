@@ -5,6 +5,7 @@
   *	client/views/dashboard/main.js
   *
   * Description:
+  * Helpers and events for the dashboard template.
   *
   * Author:
   *	Delena Malan

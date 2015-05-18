@@ -1,10 +1,11 @@
 /**
-  * WealthMan
+  * Wealth Man
   * 
   * Location:	
   *	both/collections/model.js
   *
   * Description:
+  * Definition of the collection in which models are stored.
   *
   * Author:
   *	Delena Malan

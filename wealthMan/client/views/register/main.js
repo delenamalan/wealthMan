@@ -2,9 +2,10 @@
  * Wealth Man
  * 
  * Location:	
- *	client/views/register/main.js
+ * client/views/register/main.js
  *
  * Description:
+ * Helpers and events for the register template.
  *
  * Author:
  * Delena Malan

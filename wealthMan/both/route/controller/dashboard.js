@@ -5,8 +5,9 @@
   *	both/route/controller/dashboard.js
   *
   * Description:
+  * Dashboard page controller.
   *
-  * Authors:
+  * Author:
   * Delena Malan
   **/
 Log.log( Level, Log.INFO, "both/route/controller/dashboard.js" );
