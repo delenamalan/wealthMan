@@ -1,48 +1,13 @@
-Project Name: Wealth Man
-Author: Delena Malan
-Created: 17 May 2015
-Last Edited: 18 May 2015
-=======================
+## File tree
 
-------------
-Introduction
-------------
-Wealth Man is a Meteor application for wealth managers to maintain their models
-and securities.
-
-Meteor is an open-source Javascript web-application framework written on top of
-Node.js and is described as as a MVM (Model-View-Mapper). I chose to use Meteor
-because of its "developer friendliness", since I had only about 24 hours to
-write this application.
-
-The application's data is stored on MongoDB which is included in Meteor by default.
-
-----------
-How to run
-----------
-If you don't have Meteor installed already, from a terminal window:
-    curl install.meteor.com | /bin/sh
-
-To run the app:
-    cd wealthMan
-    meteor
-
-Open your browser (preferably Chrome) and type http://localhost:3000 in the
-address bar.
-
-Type in any email address and password to login.
-
-The latest version of the app is also running at http://wealthman.meteor.com
-
----------
-File list
----------
 ├── README                              This file.
 └── wealthMan
     ├── both
     │   ├── collections
     │   │   ├── model.js                Definition of the collection in which models
     │   │   │                               are stored.
+    │   │   ├── modelSecurity.js        Definition of the collection in which
+    │   │   │                               model-security pairs are stored.
     │   │   └── security.js             Definition of the collection in which
     │   │                                   securites are stored.
     │   ├── lib
@@ -81,21 +46,6 @@ File list
     │           ├── main.js             Helpers and events for the register template.
     │           ├── style.css           Style sheet for the register template.
     │           └── template.html       The register template definition.
-
     └── server
         ├── methods.js                  Meteor collection methods.
         └── publications.js             Meteor collection publications.
-
-
---------------------------------------------
-Additional Features I Would Have Implemented
---------------------------------------------
-If I had more time, these are some of the things I would have liked to implement
-additionally:
- - Alert the manager if the securities' percentages of a model doesn't add to
-   100%.
- - Display a pie chart of how securities make up a model.
- - Create security categories.
- - Save the change of security prices over time and display a line graph to
-   show the changes.
- - Use faker.js to create example data.
